@@ -10,15 +10,21 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  static const String initialRoute = 'login';
+  static const String loginRoute = 'login';
+  static const String registerRoute = 'register';
+  static const String homeRoute = 'home';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: initialRoute,
       routes: {
-        '/': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(),
-        '/home': (context) => HomePage(),
+        loginRoute: (context) => LoginPage(),
+        registerRoute: (context) => RegisterPage(),
+        homeRoute: (context) => HomePage(),
       },
+      home: LoginPage(), // Set a default home route
     );
   }
 }

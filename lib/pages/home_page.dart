@@ -2,6 +2,33 @@
 
 import 'package:flutter/material.dart';
 
+class ImageContainer extends StatelessWidget {
+  final String imagePath;
+
+  const ImageContainer({required this.imagePath});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 255, 255, 255),
+        borderRadius: BorderRadius.circular(50.0),
+        border: Border.all(
+          color: Color.fromARGB(255, 55, 72, 140),
+          width: 13,
+        ),
+      ),
+      width: 400,
+      height: 200,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30.0),
+        child: Image.asset(imagePath, fit: BoxFit.cover),
+      ),
+    );
+  }
+}
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,12 +47,12 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-          child: Column(
-        children: [
-          Container(
-            child: Column(
-              children: [
-                Container(
+        child: Column(
+          children: [
+            Container(
+              child: Column(
+                children: [
+                  Container(
                     decoration: BoxDecoration(
                       color: Color(0xffD9D9D9),
                       borderRadius: BorderRadius.circular(10.0),
@@ -39,82 +66,18 @@ class HomePage extends StatelessWidget {
                       ' من نحن؟ ',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    )),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(50.0),
-                    border: Border.all(
-                      color: Color.fromARGB(255, 55, 72, 140),
-                      width: 13,
                     ),
                   ),
-                  width: 400, // Set the width as needed
-                  height: 200, // Set the height as needed
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30.0),
-                    child: Image.asset(
-                        'assets/A.jpg', // Replace with the path to your photo
-                        fit: BoxFit.cover // Adjust the fit property as needed
-                        ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(50.0),
-                    border: Border.all(
-                      color: Color.fromARGB(255, 55, 72, 140),
-                      width: 13,
-                    ),
-                  ),
-                  width: 400,
-                  height: 200,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30.0),
-                    child: Image.asset('assets/G.jpg', fit: BoxFit.cover),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(50.0),
-                    border: Border.all(
-                      color: Color.fromARGB(255, 55, 72, 140),
-                      width: 13,
-                    ),
-                  ),
-                  width: 400, // Set the width as needed
-                  height: 200, // Set the height as needed
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30.0),
-                    child: Image.asset('assets/WO.jpg', fit: BoxFit.cover),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(50.0),
-                    border: Border.all(
-                      color: Color.fromARGB(255, 55, 72, 140),
-                      width: 13,
-                    ),
-                  ),
-                  width: 400,
-                  height: 200,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30.0),
-                    child: Image.asset('assets/WO.jpg ', fit: BoxFit.cover),
-                  ),
-                ),
-              ],
+                  ImageContainer(imagePath: 'assets/1.jpg'),
+                  ImageContainer(imagePath: 'assets/3.jpg'),
+                  ImageContainer(imagePath: 'assets/5.jpg'),
+                  ImageContainer(imagePath: 'assets/6.png'),
+                ],
+              ),
             ),
-          ),
-        ],
-      )),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
